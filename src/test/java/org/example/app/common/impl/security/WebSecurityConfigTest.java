@@ -9,13 +9,11 @@ import java.util.UUID;
 import javax.inject.Inject;
 import javax.servlet.Filter;
 
-import org.assertj.core.api.Assertions;
 import org.example.app.TestConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.security.authentication.TestingAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
@@ -31,9 +29,10 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(webEnvironment = WebEnvironment.NONE, classes = { TestConfig.class })
+@SpringApplicationConfiguration(classes = TestConfig.class)
+// @SpringBootTest(webEnvironment = WebEnvironment.NONE, classes = { TestConfig.class })
 @WebAppConfiguration
-public class WebSecurityConfigTest extends Assertions {
+public class WebSecurityConfigTest {
 
   private static final String URI_TEST = "/test";
 
